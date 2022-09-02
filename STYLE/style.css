@@ -1,0 +1,47 @@
+body{
+    background-color: rgb(236, 234, 234);
+}
+.bg1{
+    background-color: rgb(221, 230, 240);
+}
+
+
+
+#title{
+    background-color: rgb(175, 211, 245);
+    padding: 10px;
+    border-radius: 10px;
+    color: rgb(56, 98, 146);
+    font-weight: bold;
+
+}
+
+.nav-bar-text-color1{
+    color: rgb(56, 98, 146);
+    font-weight: 600;
+
+}
+
+.nav-bar-text-color2{
+    color: rgb(180, 178, 178);
+    
+}
+.blog:hover{
+    background-color:rgb(187, 238, 221);
+    color: rgb(56, 98, 146);
+    padding: 10px;
+    font-weight: bold;
+}
+
+.category-name{
+    color:rgb(109, 107, 107) ;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 400;
+    margin-right: 37px;
+}
+.category:hover{
+    color: rgb(56, 98, 146);
+    font-weight: bold;
+    background-color: rgb(221, 230, 240);
+}
