@@ -1,6 +1,9 @@
 body{
+    margin: 0%;
+    padding: 0%;
     background-color: rgb(236, 234, 234);
 }
+
 .bg1{
     background-color: rgb(221, 230, 240);
 }
@@ -14,6 +17,12 @@ body{
     color: rgb(56, 98, 146);
     font-weight: bold;
 
+}
+
+.align-by-css {
+    text-align: right;
+    margin-left: auto;
+    margin-right: 10px;
 }
 
 .nav-bar-text-color1{
@@ -33,15 +42,76 @@ body{
     font-weight: bold;
 }
 
-.category-name{
+
+
+
+
+
+.section_filter {
+    display: flex;
+}
+
+.filter_home {
+    height: fit-content;
     color:rgb(109, 107, 107) ;
     text-decoration: none;
-    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 25px;
+    margin-right: 0px;
     font-weight: 400;
-    margin-right: 37px;
+    border-radius: 15px;
+}
+
+.filter_home:hover {
+    color: rgb(56, 98, 146);
+    font-weight: bold;
+    background-color: rgb(221, 230, 240);
+}
+
+.category-name{
+    height: fit-content;
+    color:rgb(109, 107, 107) ;
+    text-decoration: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 25px;
+    margin-right: 0px;
+    font-weight: 400;
+    border-radius: 15px;
 }
 .category:hover{
     color: rgb(56, 98, 146);
     font-weight: bold;
     background-color: rgb(221, 230, 240);
 }
+
+.author-image{
+    height: 60px;
+}
+
+.main_table {
+    width: 100%;
+}
+
+.td-right {
+    margin-left: auto;
+    text-align: right;
+}
+
+.td-see-more {
+    text-align: center;
+}
+.new-container-div{
+    background-color: rgb(181, 235, 181);
+}
+.see-more-button{
+    background-color: rgb(175, 211, 245);
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    color: rgb(56, 98, 146);
+    font-weight: bold;
+}
+
+
