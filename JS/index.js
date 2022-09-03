@@ -1,43 +1,53 @@
-const loadAllNameCategories = async () =>{
+const loadCategories = async () =>{
     try{
-    const response = await fetch("https://openapi.programming-hero.com/api/news/categories");
-    const data = await response.json();
-    return data;
+        const response = await fetch("https://openapi.programming-hero.com/api/news/categories");
+        const data = await response.json();
+        return data;
     }
     catch{
         error =>{
             console.log(error);
-        }    }
+        }    
+    }
 }
 
 const setNewsCategory = async () =>{
-
-const data = await loadAllNameCategories();
-const data1 = data.data.news_category;
-const categoryContainer = document.getElementById('category-container');
-for(const category of data1){
-    console.log(data1);
-const a = document.createElement ('a');
-a.innerHTML = `
-<a onclick="loadNews(${category.category_name})" id="${category.category_name}" class="category-name category"> ${category.category_name} </a>
-`; 
-categoryContainer.appendChild(a);
-}
-// console.log(categoryContainer);
-
+    const data = await loadCategories();
+    const data1 = data.data.news_category;
+    const categoryContainer = document.getElementById('category-container');
+    for(const category of data1){
+        //console.log(data1);
+    const a = document.createElement ('a');
+    a.innerHTML = `
+    <a onclick="setNewsFeed('${category.category_id}')" id="${category.category_id}" class="category-name category"> ${category.category_name} </a>
+    `; 
+    categoryContainer.appendChild(a);
+    }
+    //console.log(categoryContainer);
 }
 
 
-const loadAllCategoriesNewsFeed = async() =>{
-    const response = await fetch("https://openapi.programming-hero.com/api/news/category/01");
+
+
+
+
+
+
+
+
+
+const loadNewsFeed = async(category_id) =>{
+    const response = await fetch("https://openapi.programming-hero.com/api/news/category/"+category_id);
     const data = await response.json();
     return data;
 }
 
-const setCategoriesNewsFeed= async() =>{
-    const data = await loadAllCategoriesNewsFeed ();
+const setNewsFeed= async(category_id) =>{
+    const data = await loadNewsFeed (category_id);
     const data1 = data.data;
-    const newsContainer = document.getElementById('news-container')
+    const newsContainer = document.getElementById('news-container') ;
+    newsContainer.textContent = "";
+
     spinner.classList.add("d-none");
         for (const item of data1){
          //console.log(item);
@@ -111,5 +121,9 @@ setNewsCategory();
 document.getElementById('filter_home').addEventListener('click', function(){
     const spinner = document.getElementById('spinner');
     spinner.classList.remove("d-none");
-    setCategoriesNewsFeed();
+    setNewsFeed();
 })
+
+
+
+

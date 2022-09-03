@@ -103,6 +103,7 @@ body{
     text-align: center;
 }
 .new-container-div{
+    height: 650px;
     background-color: rgb(181, 235, 181);
 }
 .see-more-button{
