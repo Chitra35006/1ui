@@ -17,11 +17,12 @@ const setNewsCategory = async () =>{
     const categoryContainer = document.getElementById('category-container');
     for(const category of data1){
         //console.log(data1);
-    const a = document.createElement ('a');
-    a.innerHTML = `
-    <a onclick="setNewsFeed('${category.category_id}')" id="${category.category_id}" class="category-name category"> ${category.category_name} </a>
+    const li = document.createElement ('li');
+    li.classList.add('ul');
+    li.innerHTML = `
+    <li onclick="setNewsFeed('${category.category_id}')" id="${category.category_id}" class="category-name category"> ${category.category_name} </li>
     `; 
-    categoryContainer.appendChild(a);
+    categoryContainer.appendChild(li);
     }
     //console.log(categoryContainer);
 }
@@ -43,6 +44,7 @@ const loadNewsFeed = async(category_id) =>{
 }
 
 const setNewsFeed= async(category_id) =>{
+    spinner.classList.remove("d-none");
     const data = await loadNewsFeed (category_id);
     const data1 = data.data;
     const newsContainer = document.getElementById('news-container') ;

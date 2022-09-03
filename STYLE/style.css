@@ -45,9 +45,8 @@ body{
 
 
 
-
-
-.section_filter {
+.section_filter ul {
+    list-style: none;
     display: flex;
 }
 
