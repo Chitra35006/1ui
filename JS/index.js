@@ -16,14 +16,14 @@ const data = await loadAllNameCategories();
 const data1 = data.data.news_category;
 const categoryContainer = document.getElementById('category-container');
 for(const category of data1){
-    //console.log(data);
+    console.log(data1);
 const a = document.createElement ('a');
 a.innerHTML = `
 <a onclick="loadNews(${category.category_name})" id="${category.category_name}" class="category-name category"> ${category.category_name} </a>
 `; 
 categoryContainer.appendChild(a);
 }
-console.log(categoryContainer);
+// console.log(categoryContainer);
 
 }
 
@@ -112,9 +112,4 @@ document.getElementById('filter_home').addEventListener('click', function(){
     const spinner = document.getElementById('spinner');
     spinner.classList.remove("d-none");
     setCategoriesNewsFeed();
-})
-
-
-document.getElementById('Breaking News').addEventListener('click', function(){
-    setFeedsByCategoryId();
 })

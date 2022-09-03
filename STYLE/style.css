@@ -114,4 +114,17 @@ body{
     font-weight: bold;
 }
 
+.table{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.td{
+    border: 1px solid #e9caca;
+    text-align: left;
+    padding: 8px;
+}
+
+
 
