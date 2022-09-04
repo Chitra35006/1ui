@@ -20,7 +20,7 @@ const setNewsCategory = async () =>{
     const li = document.createElement ('li');
     li.classList.add('ul');
     li.innerHTML = `
-    <li onclick="setNewsFeed('${category.category_id}')" id="${category.category_id}" class="category-name category"> ${category.category_name} </li>
+    <li onclick="setNewsFeed('${category.category_id}')" id="${category.category_id}" class="category-name category category_names2"> ${category.category_name} </li>
     `; 
     categoryContainer.appendChild(li);
     }
@@ -39,16 +39,17 @@ const setNewsCategory = async () =>{
 
 
 const loadNewsFeed = async(category_id) =>{
-    const response = await fetch("https://openapi.programming-hero.com/api/news/category/"+category_id);
-    const data = await response.json();
-    return data;
+    try{
+        const response = await fetch("https://openapi.programming-hero.com/api/news/category/"+category_id);
+        const data = await response.json();
+        return data;
+    }
+    catch{
+        error =>{
+            console.log(error);
+        }    
+    }
 }
-
-
-
-
-
-
 
 const setNewsFeed= async(category_id) =>{
     spinner.classList.remove("d-none");
@@ -109,7 +110,7 @@ const setNewsFeed= async(category_id) =>{
 
             <tr>
                 <td colspan="2" class="td-see-more mb-5">
-                    <button onclick="showNewsdetails('${item.image_url}','${item.title}', '${item.title}')" class="see-more-button" href="#" data-bs-toggle="modal" data-bs-target="#newsDetailModal">See More</button>
+                    <button onclick="showNewsdetails('${item._id}')" class="see-more-button" href="#" data-bs-toggle="modal" data-bs-target="#newsDetailModal">See More</button>
                 <td>
             </tr>
 
@@ -129,20 +130,37 @@ const setNewsFeed= async(category_id) =>{
     else {
         newsItem.innerText = i + " News Found";
     }
+}
+
+
+
+
+
+const loadModal = async(_id) =>{
+    try{
+        const response = await fetch("https://openapi.programming-hero.com/api/news/"+_id);
+        const data = await response.json();
+        return data;
+    }
+    catch{
+        error =>{
+            console.log(error);
+        }    
+    }
+}
+
+
+const showNewsdetails = async(_id) =>{
+    const data = await loadModal (_id);
+    const data1 = data.data;
+
     
 
-
-    // console.log(data1);
-    }
-
-const showNewsdetails = (image,title, titles) =>{
     const modalBody = document.getElementById('news-details');
     modalBody.innerHTML = `
-    <img class="img-fluid" src =${image}/>
-    <h4 class="p-2 font-weight-bold">${title}</h4>
-    <h4 class="p-2 font-weight-bold">${titles}</h4>
-    
-    
+    <img class="img-fluid" src =${data1.img}/>
+    <h4 class="p-2 font-weight-bold">${data1._id}</h4>
+    <h4 class="p-2 font-weight-bold">${details}</h4>
     `;
 }
 
