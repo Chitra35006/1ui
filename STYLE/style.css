@@ -1,7 +1,7 @@
 body{
     margin: 0%;
     padding: 0%;
-    background-color: rgb(236, 234, 234);
+    background-color: rgb(226, 220, 220);
 }
 
 .bg1{
@@ -161,6 +161,9 @@ body{
      }
     .category_names2{
             margin-bottom: 5px;
+    }
+    .new-container-div2{
+        height: 570px;
     }
 
 

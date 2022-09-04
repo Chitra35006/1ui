@@ -76,7 +76,7 @@ const setNewsFeed= async(category_id) =>{
          i++;
         newsdiv.classList.add('col-lg-6');
         newsdiv.innerHTML =`
-    <div class=" new-container-div border border-light">
+    <div class=" new-container-div new-container-div2 border border-light">
           <div class="parent-div">
              <img class="img-thumbnail me-4" src="${item.thumbnail_url ? item.thumbnail_url: 'Image Not Found'}" alt="">
 
