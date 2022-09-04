@@ -77,12 +77,16 @@ const setNewsFeed= async(category_id) =>{
         newsdiv.classList.add('col-lg-6');
         newsdiv.innerHTML =`
     <div class=" new-container-div border border-light">
-          <div>
-             <img class="img-fluid w-100 h-100 " src="${item.image_url ? item.image_url: 'Image Not Found'}" alt="">
+          <div class="parent-div">
+             <img class="img-thumbnail me-4" src="${item.thumbnail_url ? item.thumbnail_url: 'Image Not Found'}" alt="">
+
+             <div class="mt-2 me-1">
+                <h4>${item.title ? item.title : 'Title Not Found'}</h4>
+                <p class="c-text-light">${item.details.length > 170 ? item.details.slice(0,170) + '...': 'Details Not Found'}</p>
+            </div>
           </div>
          <div class="p-3">
-            <h4>${item.title ? item.title : 'Title Not Found'}</h4>
-            <p class="c-text-light">${item.details.length > 170 ? item.details.slice(0,170) + '...': 'Details Not Found'}</p>
+            
 
         <table class="main_table">
             <tr>
@@ -102,7 +106,9 @@ const setNewsFeed= async(category_id) =>{
                     </table>
                 </td>
 
-                <td class="p-2 td-right">
+                <td class="p-2 td-right d-flex">
+
+                    <img class="view-icon m-1" src="view.png">
                     
                     <h6>${item.total_view ? item.total_view + 'M': 'View Not Found'}</h6>
                 </td>
@@ -152,17 +158,17 @@ const loadModal = async(_id) =>{
 
 const showNewsdetails = async(_id) =>{
     const data = await loadModal (_id);
-    const data1 = data.data;
-
-    
+    const data1 = data.data[0];
+    console.log(data1);
 
     const modalBody = document.getElementById('news-details');
     modalBody.innerHTML = `
-    <img class="img-fluid" src =${data1.img}/>
-    <h4 class="p-2 font-weight-bold">${data1._id}</h4>
-    <h4 class="p-2 font-weight-bold">${details}</h4>
+    <img class="img-fluid" src ="${data1.image_url ? data1.image_url : 'Image Not Found' }"/>
+    <h4 class="p-2 font-weight-bold">${data1.title ? data1.title: 'Title Not Found' } </h4>
+    <p class="p-2 font-weight-bold">${data1.details ? data1.details : 'Details Not Found' }</p>
     `;
 }
+
 
 //setCategoriesNewsFeed();
 setNewsCategory();
