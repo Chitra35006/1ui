@@ -114,14 +114,9 @@ const setNewsFeed= async(category_id) =>{
                 </td>
             </tr>
 
-            <tr>
-                <td colspan="2" class="td-see-more mb-5">
-                    <button onclick="showNewsdetails('${item._id}')" class="see-more-button" href="#" data-bs-toggle="modal" data-bs-target="#newsDetailModal">See More</button>
-                <td>
-            </tr>
-
         </table>
         
+        <button onclick="showNewsdetails('${item._id}')" class="see-more-button" href="#" data-bs-toggle="modal" data-bs-target="#newsDetailModal">See More</button>
         
       </div>
     </div>
