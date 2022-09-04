@@ -37,23 +37,42 @@ const setNewsCategory = async () =>{
 
 
 
+
 const loadNewsFeed = async(category_id) =>{
     const response = await fetch("https://openapi.programming-hero.com/api/news/category/"+category_id);
     const data = await response.json();
     return data;
 }
 
+
+
+
+
+
+
 const setNewsFeed= async(category_id) =>{
     spinner.classList.remove("d-none");
     const data = await loadNewsFeed (category_id);
     const data1 = data.data;
+
+    data1.sort((a,b) =>{
+        return b.total_view - a.total_view;
+    })
+    
+
     const newsContainer = document.getElementById('news-container') ;
     newsContainer.textContent = "";
 
     spinner.classList.add("d-none");
+
+        
+
+        let i=0;
         for (const item of data1){
          //console.log(item);
+    
          const newsdiv = document.createElement('div');
+         i++;
         newsdiv.classList.add('col-lg-6');
         newsdiv.innerHTML =`
     <div class=" new-container-div border border-light">
@@ -102,6 +121,17 @@ const setNewsFeed= async(category_id) =>{
         `;
         newsContainer.appendChild(newsdiv);
     }
+
+    const newsItem = document.getElementById('news-item');
+    if(i==0){
+        newsItem.innerText = "No News Found";
+    }
+    else {
+        newsItem.innerText = i + " News Found";
+    }
+    
+
+
     // console.log(data1);
     }
 
@@ -123,7 +153,7 @@ setNewsCategory();
 document.getElementById('filter_home').addEventListener('click', function(){
     const spinner = document.getElementById('spinner');
     spinner.classList.remove("d-none");
-    setNewsFeed();
+    setNewsFeed('08');
 })
 
 

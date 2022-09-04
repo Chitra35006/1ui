@@ -56,7 +56,7 @@ body{
     text-decoration: none;
     padding-left: 10px;
     padding-right: 10px;
-    margin-left: 25px;
+    margin-left: 0px;
     margin-right: 0px;
     font-weight: 400;
     border-radius: 15px;
@@ -74,7 +74,7 @@ body{
     text-decoration: none;
     padding-left: 10px;
     padding-right: 10px;
-    margin-left: 25px;
+    margin-left: 28px;
     margin-right: 0px;
     font-weight: 400;
     border-radius: 15px;
@@ -83,6 +83,18 @@ body{
     color: rgb(56, 98, 146);
     font-weight: bold;
     background-color: rgb(221, 230, 240);
+}
+
+.news-item-count {
+    width: 93%;
+    height: 35px;
+    margin-left: 4%;
+    margin-right: 3%;
+    background-color: rgb(221, 230, 240);
+    text-align: center;
+    color: rgb(132, 133, 150);
+    font-weight: bold;
+    border-radius: 5px;
 }
 
 .author-image{
